@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('fondo.png');
+}
+
+#contenedorForm{
+    border: solid;
+    background-color: aliceblue;
+    border-radius: 10px;
+}

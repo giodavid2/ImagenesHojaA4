@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link href="node_modules/bootswatch/dist/flatly/bootstrap.min.css" rel="stylesheet">
+    <script src="node_modules/jquery/dist/jquery.min.js" rel="stylesheet"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src="app.js" rel="stylesheet"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container-fluid" id="formImg">
+            <div class="row" id="contenedorForm">
+                <div class="container">
+                    <form class="text-center">
+                        <br>
+                        <div class="mb-3">
+                            <label for="imgCargar" class="form-label">Imagen</label>
+                            <input type="file" class="form-control" name="image[]" id="image" multiple>
+                        </div>
+                        <button class="btn btn-primary" onclick="generarPDF()" id="btn">Subir</button>
+                        <br>
+                        <br>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
