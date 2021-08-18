@@ -20,7 +20,7 @@ function encodeImgURL(imagen){
             img.src = _URL.createObjectURL(imagen);
             img.onload = function () {
                 var ancho = img.width;
-                var alto = img.height
+                var alto = img.height;
                 imgInfo += '|'+ancho+'x'+alto;
             }            
         }
