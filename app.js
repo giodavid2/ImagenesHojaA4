@@ -1,6 +1,6 @@
+var imgData = '';
+var imgInfo = '';
 $(document).ready(function() { 
-    imgData = '';
-    imgInfo = '';
     $('#image').change(async function() {
         var imagen = document.getElementById('image').files;
         for (let value of Object.keys(imagen)) {
