@@ -3,9 +3,9 @@ $(document).ready(function() {
     imgInfo = '';
     $('#image').change(async function() {
         var imagen = document.getElementById('image').files;
-        for (i = 0; i < imagen.length; i++) {
-            if (validarFormato(imagen[i])) {
-                encodeImgURL(imagen[i]);
+        for (let value of Object.keys(imagen)) {
+            if (validarFormato(imagen[value])) {
+                encodeImgURL(imagen[value]);
             }
         }
     });
@@ -39,7 +39,7 @@ function generarPDF() {
             orientation: 'p'
         });
     }
-    for (i = 0; i < lengthData.length; i++) {
+    for (let i = 0; i < lengthData.length; i++) {
         if (lengthData[i] != '') {
             var width = doc.internal.pageSize.width;
             var height = doc.internal.pageSize.height;
