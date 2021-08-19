@@ -1,4 +1,4 @@
-var imgData = '';
+var imgUrl = '';
 var imgInfo = '';
 $(document).ready(function() { 
     $('#image').change(async function() {
@@ -14,7 +14,7 @@ $(document).ready(function() {
 function encodeImgURL(imagen){
     var file = new FileReader();
         file.onloadend = function() {
-            imgData += '|'+file.result;
+            imgUrl += '|'+file.result;
             var _URL = window.URL || window.webkitURL;
             var img = new Image();
             img.src = _URL.createObjectURL(imagen);
@@ -28,7 +28,7 @@ function encodeImgURL(imagen){
 }
 
 function generarPDF() {
-    var lengthData = imgData.split('|');
+    var lengthUrl = imgUrl.split('|');
     var lengthInfo = imgInfo.split('|');
     if (lengthInfo[1].split('x')[0] > lengthInfo[1].split('x')[1]) {
         var doc = new jsPDF({
@@ -39,11 +39,11 @@ function generarPDF() {
             orientation: 'p'
         });
     }
-    for (let i = 0; i < lengthData.length; i++) {
-        if (lengthData[i] != '') {
+    for (let i = 0; i < lengthUrl.length; i++) {
+        if (lengthUrl[i] != '') {
             var width = doc.internal.pageSize.width;
             var height = doc.internal.pageSize.height;
-            doc.addImage(lengthData[i], 'JPEG', 0, 0, width, height);
+            doc.addImage(lengthUrl[i], 'JPEG', 0, 0, width, height);
             if (lengthInfo[i+1] != undefined){
                 if (lengthInfo[i+1].split('x')[0] > lengthInfo[i+1].split('x')[1]){
                     doc.addPage('a4', 'landscape');
@@ -53,7 +53,7 @@ function generarPDF() {
             }
         }
     }
-    doc.deletePage(lengthData.length);
+    doc.deletePage(lengthUrl.length);
     doc.save('imagenes.pdf');
 }
 
